@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="db.css">
+</head>
+<body>
+    <h1>ARRAYS</h1>
+    <div style="border: 2px solid #ccc; height: 100px; width: 900px; padding: 5px; background-color: #f9f9f9; ">
+      <p>An array stores multiple values in one single variable:</p>
+      <p>An array is a special variable that can hold many values under a single name, and you can access the values by referring to an index number or name.</p>
+    </div>
+    <h2>ARRAY TYPES</h2>
+    <div style="border: 2px solid #ccc; height: 100px; width: 900px; padding: 10px; background-color: #f9f9f9;">
+        <ul>
+            <li><p><b>Indexed arrays:</b>Arrays with a numeric index</p></li>
+            <li><p><b>Associative arrays: </b>Arrays with named keys</p></li>
+            <li><p><b>Multidimensional arrays: </b>Arrays containing one or more arrays</p></li>
+        </ul>
+     </div>
+     <h2>INDEXED ARRAY</h2>
+     <div class="grant1">
+        <ul>
+            <li><p>In PHP, the array elements may be a collection of key-value pairs or it may contain values only.</p></li>
+            <li><p>If the array consists of values only, it is said to be an indexed array, as each element is identified by an incrementing index, starting with "0".</p></li>
+            <li><p>An indexed array in PHP may be created either by using the array() function or with the square bracket syntax.</p></li>
+            <li><p>Each element in the array has a positional index, the first element being at index "0"</p></li>
+        </ul>
+    </div>
+    
+        <h3>CREATING:</h3>
+        <pre>
+            $arr1 = array("a", 10, 9.99, true);
+            $arr2 = ["a", 10, 9.99, true];
+        </pre>
+        <h3>ACCESSING:</h3>
+            <pre>
+                $cars = array("Volvo", "BMW", "Toyota");
+                echo $cars[0];
+            </pre>
+            <h3>CHANGE VALUE:</h3>
+            <pre>
+                $cars = array("Volvo", "BMW", "Toyota");
+                $cars[1] = "Ford";
+                var_dump($cars);
+            </pre>
+            <h3>ITERATING:</h3>
+            <pre>
+                $cars = array("Volvo", "BMW", "Toyota");
+                foreach ($cars as $x) {
+                  echo "$x &ltbr>";
+                }
+            </pre>
+      
+        <h2>ASSOCIATIVE ARRAYS</h2>
+        <div class="grant">
+            <ul>
+                <li><p>Associative arrays are arrays that use named keys that you assign to them.</p></li>
+                <li><p>Associative arrays are used to implement data structures such as dictionary, maps, trees, etc.</p></li>
+                <li><p>In PHP, the "=>" symbol is used to establish association between a key and its value.</p></li>
+
+            </ul>
+        </div>
+        
+            <h3>CREATING:</h3>
+            <pre>
+                $car = array("brand"=>"Ford", "model"=>"Mustang", "year"=>1964);
+            </pre>
+            <h3>ACCESSING:</h3>
+            <pre>
+                $car = array("brand"=>"Ford", "model"=>"Mustang", "year"=>1964);
+                echo $car["model"];
+            </pre>
+            <h3>CHANGE VALUE:</h3>
+            <pre>
+                $car = array("brand"=>"Ford", "model"=>"Mustang", "year"=>1964);
+                $car["year"] = 2024;
+                var_dump($car);
+            </pre>
+            <h3>ITERATING:</h3>
+            <pre>
+                $car = array("brand"=>"Ford", "model"=>"Mustang", "year"=>1964)
+                foreach ($car as $x => $y) {
+                  echo "$x: $y &ltbr>";
+                }
+            </pre>
+       
+        <h2>MULTIDIMENSIONAL ARRAY</h2>
+    <div class="grant">
+        <ul>
+            <li><p>A multidimensional array is an array of arrays. </p></li>
+            <li><p>A PHP array may be a two-dimensional associative array also, where each element of the outer array is key-value pair, the value being another associative array.</p></li>
+        </ul>
+    </div>
+        <h3>CREATING:</h3>
+        <pre>
+            $arr = [
+            [1,2,3,4],
+            [10, 20, 30, 40],
+            [100, 200, 300, 400]
+         ];
+        </pre>
+        <h3>ACCESSING:</h3>
+            <pre>
+                &lt?php
+                $tbl = [[1,2,3,4], [10, 20, 30, 40], [100, 200, 300, 400]];    
+             
+                # prints number in index 2 of the row 2
+                print ("Value at [2], [2] :" . $tbl[2][2]);
+             ?>
+            </pre>
+        <h3>ITERATING:</h3>
+            <pre>
+                &lt?php
+                $tbl = [
+                   [1,2,3,4],
+                   [10, 20, 30, 40],
+                   [100, 200, 300, 400]
+                ];    
+                echo ("\n");
+                foreach ($tbl as $row){
+                   foreach ($row as $elem){
+                      $val = sprintf("%5d", $elem);
+                      echo $val;
+                   }
+                   echo "\n";
+                }
+             ?>
+            </pre>
+        <h2>DELETING ARRAY</h2>
+        <div class="grant">
+            <ul>
+                <li><p>To remove an existing item from an array, you can use the array_splice() function.</p></li>
+                <li><p>You can also use the unset() function to delete existing array items.</p></li>
+            </ul>
+        </div>
+        <h3>EXAMPLE 2: Using Splice()</h3>
+        <pre>
+            $cars = array("Volvo", "BMW", "Toyota");
+            array_splice($cars, 1, 1);
+        </pre> 
+        <h3>EXAMPLE 2: Using unset()</h3>
+        <pre>
+            $cars = array("Volvo", "BMW", "Toyota");
+            unset($cars[1]);
+        </pre>
+</body>
+</html>

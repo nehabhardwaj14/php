@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="db.css">
+</head>
+<body>
+    <h1>VARIABLES</h1>
+    <div class="intro">
+        <ul>
+            <li><p>Variables are "containers" for storing information.</p></li>
+            <li><p>A variable can have a short name (like $x and $y) or a more descriptive name ($age, $carname, $total_volume).</p></li>
+        </ul>
+        <p><b>RULES FOR PHP VARIABLES</b></p>
+        <ul>
+            <li><p>A variable starts with the $ sign, followed by the name of the variable</p></li>
+            <li><p>A variable name must start with a letter or the underscore character</p></li>
+            <li><p>A variable name cannot start with a number</p></li>
+            <li><p>A variable name can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ )</p></li>  
+            <li><p>PHP variable names are case-sensitive.</p></li>
+        </ul>
+    </div>
+        <h3> SYNTAX:</h3> 
+    <pre>
+        $x = "Hello, World!";
+
+    </pre>
+    <h3>EXAMPLE:</h3>
+    <div class="grant">
+        <pre>
+        &lt?php
+        $x = "Hello, World!";
+        echo $x; // Outputs: Hello, World!
+        ?>
+    </pre>
+</div>
+    <h2>SCOPE OF VARIABLES</h2>
+    <div class="intro">
+        <p><b>Variable scope defines the context in which a variable is accessible. </b></p>
+        <ul>
+            <li><p>The scope of a variable is the part of the script where the variable can be referenced/used.</p></li>
+            <li><p> PHP has four types of variable scope:</p></li>
+            <li><p><b>Local:</b> Variables defined within a function are accessible only inside that function.</p></li>
+            <li><p><b>Global:</b> Variables defined outside of functions can be accessed using the global keyword inside a function.</p></li>
+            <li><p><b>Static: </b>Variables declared with the static keyword retain their value across function calls</p></li>
+            <li><p><b>Parameter:</b> Variables passed to functions as arguments.</p></li>
+            
+        </ul>
+    </div>
+    <h2>TYPES OF VARIABLES</h2>
+    <div class="intro">
+        <p><b>PHP supports the following data types:</b></p>
+        <ul>
+            <li><p>String</p></li>
+            <li><p>Integer</p></li>
+            <li><p>Float</p></li>
+            <li><p>Boolean</p></li>
+            <li><p>Array</p></li>
+            <li><p>Object</p></li>
+            <li><p>NULL</p></li>
+        </ul>
+    </div>
+    <h2>TOKENS</h2>
+    <div class="intro">
+        <ul>
+            <li><p>In PHP, a token is a basic unit of the language's syntax.</p></li>
+            <li><p>Tokens are the smallest elements in a script, representing the individual components that make up PHP code. </p></li>
+        </ul>
+            <p><b>The types of tokens in PHP include:</b></p>
+        <ul>
+            <li><p><b>Variables:</b>Identified by a dollar sign ($) followed by the variable name (e.g., $variableName).</p></li>
+            <li><p><b>Operator:</b> Symbols that represent operations (e.g., + for addition, - for subtraction).</p></li>
+            <li><p><b>Keywords:</b>Reserved words in PHP that have special meaning (e.g., if, else, function).</p></li>
+            <li><p><b>Strings:</b> Text data enclosed in quotes (e.g., "Hello, World!").</p></li>
+            <li><p><b>Numbers:</b> Numeric values (e.g., 123, 3.14).</p></li>
+            <li><p><b>Symbols:</b>Special characters that serve specific purposes (e.g., parentheses ( ), braces { }).</p></li>
+        </ul>
+    </div>
+</body>
+</html>

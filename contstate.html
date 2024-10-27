@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="db.css">
+</head>
+<body>
+     <h1>DECISION MAKING STATEMENTS</h1>
+     <p>PHP supports the following  decision making statements :-</p>
+     <div class="grant">
+         <ul>
+             <li><p><b>if statement :</b> executes some code if one condition is true</p></li>
+             <li><p><b>if else statement :</b> executes some code if a condition is true and another code if that condition is false</p></li>
+             <li><p><b>switch statement :</b> selects one of many blocks of code to be executed</p></li>
+         </ul>
+     </div>
+     <h2>IF STATEMENT</h2>
+        <ul>
+            <li><p>The if statement executes some code if one condition is true.</p></li>
+        </ul>
+         <h3>SYNTAX:</h3>
+         <div class="grant">
+         <pre>
+            if (condition) {
+                // code to be executed if condition is true;
+              }
+         </pre>
+        </div>
+         <h3>EXAMPLE:</h3>
+         <div class="grant">
+             <pre>
+                &lt?php
+                $t = 14;
+                if ($t &lt 20) {
+                  echo "Have a good day!";
+                }
+                ?>
+             </pre>
+         </div>
+
+         <h2>IF ELSE STATEMENT</h2>
+         <div class="grant">
+        <ul>
+           <li><p> if you want to execute some code if a condition is true and another code if the sme condition is false, then use the "if....else" statement. </p></li>
+           <li><p> the if keyword is used in conjunction with else keyword, although it is not always mandatory.</p></li>
+        </ul>
+        </div>
+             <h3>SYNTAX:</h3>
+             <pre>
+                if (condition) {
+                    // code to be executed if condition is true;
+                  } else {
+                    // code to be executed if condition is false;
+                  }
+             </pre>
+             <h3>EXAMPLE:</h3>
+             <div class="grant1">
+                 <pre>
+                    &lt?php
+                    $a=10;
+                    $b=20;
+                    if ($a > $b)
+                       echo "a is bigger than b";
+                    else
+                       echo "a is not bigger than b";
+                 ?>
+                 </pre>
+             </div>
+        <h2>SWITCH STATEMENT</h2>
+        <ul>
+            <li><p>The switch statement is used to perform different actions based on different conditions.</p></li>
+            <li><p>The value of the expression is compared with the values of each case</p></li>
+            <li><p>The break keyword breaks out of the switch block</p></li>
+            <li><p>The default code block is executed if there is no match</p></li>
+        </ul>
+    <h3>SYNTAX:</h3>
+    <div class="intro">
+        <pre>
+            switch (expression) {
+                case label1:
+                  //code block
+                  break;
+                case label2:
+                  //code block;
+                  break;
+                case label3:
+                  //code block
+                  break;
+                default:
+                  //code block
+              }
+        </pre>
+      </div>
+        <h3>EXAMPLE:</h3>
+        <div class="intro">
+            <pre>
+                $favcolor = "red";
+                switch ($favcolor) {
+                  case "red":
+                    echo "Your favorite color is red!";
+                    break;
+                  case "blue":
+                    echo "Your favorite color is blue!";
+                    break;
+                  case "green":
+                    echo "Your favorite color is green!";
+                    break;
+                  default:
+                    echo "Your favorite color is neither red, blue, nor green!";
+                }   
+            </pre>
+        </div>
+
+</body>
+</html>

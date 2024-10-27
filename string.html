@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="db.css">
+</head>
+<body>
+    <h1>STRING</h1>
+    <p>Strings are a sequence of characters, and PHP provides many functions to manipulate them.</p>
+    <div class="intro">
+        <h3>DEFINING STRING:</h3>
+        <pre>
+            &lt?php
+            $string1 = "Hello";
+            $string2 = 'World';
+            ?>
+        </pre>
+        <h3>STRING INTERPOLATION:</h3>
+        <p>You can embed variables inside double-quoted strings using curly braces:</p>
+        <pre>
+            &lt?php
+            $name = "John";
+            echo "Hello, {$name}!"; // Outputs: Hello, John!
+            ?>
+        </pre>
+    </div>
+        <h3>HEREDOC SYNTAX:</h3>
+        <p>Heredoc is a way to define strings over multiple lines:</p>
+        <pre>
+            &lt?php
+            $heredoc = &lt&lt&ltEOD
+            This is a heredoc string.
+            It can span multiple lines.
+            EOD;
+            echo $heredoc;
+            ?>
+        </pre>
+        <h2>STRING FUNCTIONS</h2>
+        <div class="grant1">
+            <p>Common string functions include:</p>
+            <ul>
+                <li><p>strlen(): Get the length of a string.</p></li>
+                <li><p>strtoupper(): Convert to uppercase.</p></li>
+                <li><p>strtolower(): Convert to lowercase.</p></li>
+                <li><p>substr(): Extract a substring.</p></li>
+                <li><p>strpos(): Find the position of the first occurrence of a substring.</p></li>
+            </ul>
+        </div>
+         <h2>FORMATTING STRINGS</h2>
+            <ul>
+                <li><p>You can format strings using the printf() function:</p></li>
+            </ul>
+            <h3>EXAMPLE:</h3>
+            <pre>
+                &lt?php
+                $name = "John";
+                $age = 25;
+                printf("My name is %s and I am %d years old.", $name, $age);
+                ?>
+            </pre>
+        <h2>COMPARING AND SEARCHING STRING</h2>
+        <ul>
+            <li><p>You can compare strings using comparison operators:</p></li>
+        </ul>
+        <div class="intro1">
+            <pre>
+                &lt?php
+                $str1 = "Hello";
+                $str2 = "hello";
+        
+                if ($str1 === $str2) {
+                    echo "Strings are identical.";
+                } else {
+                    echo "Strings are different.";
+                }
+                ?> 
+            </pre>
+            <p>To search for a substring:</p>
+            <pre>
+                &lt?php
+                $haystack = "Hello, welcome to my world.";
+                $needle = "welcome";
+        
+                if (strpos($haystack, $needle) !== false) {
+                    echo "Found '$needle' in the string.";
+                } else {
+                    echo "'$needle' not found.";
+                }
+                ?>
+            </pre>
+        </div>
+        <h2>CHARACTER AND STRING INDEXING</h2>
+        <p>You can access individual characters in a string using indexing:</p>
+        <pre>
+            &lt?php
+            $str = "Hello";
+            echo $str[0]; // Outputs: H
+            echo $str[1]; // Outputs: e
+            ?>
+        
+        </pre>
+
+       
+</body>
+</html>

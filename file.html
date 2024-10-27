@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="db.css">
+</head>
+<body>
+    <h1>VIEWS</h1>
+    <div class="intro">
+    <ul>
+        <li><p>The View in the Structured Query Language is considered as the virtual table, which depends on the result-set of the predefined SQL statement.</p></li>
+        <li><p>VIEW hides the complexity of the data and restricts unnecessary access to the database.</p></li>
+        <li><p>It permits the users to access only a particular column rather than the whole data of the table.</p></li>
+        <li><p>Views also store data in rows and columns, but the rows do not have any physical existence in the database.</p></li>
+        <li><p>Any database administrator and user can easily create the View by selecting the columns from one or more database tables.</p></li>
+        <li><p>A view can store either all the records of the table or a particular record from the table using the WHERE clause.</p></li>
+    </ul>
+</div>
+    <h2>CREATE VIEW</h2>
+    <pre>
+        <h3>SYNTAX:</h3>
+        CREATE VIEW View_Name AS    
+        SELECT Column_Name1, Column_Name2, ....., Column_NameN    
+        FROM Table_Name    
+        WHERE condition; 
+    </pre> 
+        <div>
+         <h3>EXAMPLE:</h3>
+         <pre>
+         mysql> create view duble as select roll_no,marks,age from student;
+         Query OK, 0 rows affected (0.02 sec)
+
+         mysql> select *from duble;
+         +---------+-------+------+
+         | roll_no | marks | age  |
+         +---------+-------+------+
+         |       1 |    98 |   18 |
+         |       2 |    90 |   19 |
+         |       3 |    80 |   19 |
+         |       4 |    80 |   20 |
+         |       5 |    40 |   18 |
+         |       6 |    79 |   19 |
+         |       7 |    20 |   20 |
+         |       8 |    79 |   19 |
+         |       9 |    75 |   19 |
+         +---------+-------+------+
+    </pre>
+</div> 
+    <h2>DELETETION OF VIEW</h2>
+    <div class="intro">
+    <pre>
+      <h3>SYNTAX:</h3>
+        DROP VIEW VIEW_NAME;
+        <h3>EXAMPLE:</h3>
+        mysql> drop view duble;
+        Query OK, 0 rows affected (0.01 sec)
+    </pre>
+</div>
+</body>
+</html>

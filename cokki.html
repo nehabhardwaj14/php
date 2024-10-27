@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="db.css">
+</head>
+<body>
+    <h1>COOKIES IN PHP</h1>
+    <div class="grant">
+    <ul>
+      <li><p>Cookies and sessions are essential for managing state and user data in web applications. This section covers the basics of both.</p></li>
+      <li><p>Cookies are small pieces of data stored on the client’s browser that can be used to remember information about the user across sessions.</p></li>
+    </ul>
+    </div>
+    <h2>SETTING TIME IN COOKIE</h2>
+    <div class="grant1">
+      <ul>
+        <li><p>You can set a cookie using the setcookie() function. Here’s how to set a cookie with a time limit:</p></li>
+      </ul>
+      <pre>
+        &lt?php
+        // Set a cookie that expires in 1 hour
+        setcookie("username", "JohnDoe", time() + 3600);
+        echo "Cookie 'username' is set!"; // Outputs: Cookie 'username' is set!
+        ?>
+      </pre>
+    </div>
+    <h2>DELETING COOKIE</h2>
+    <div class="grant1">
+      <ul>
+        <li><p>To delete a cookie, set its expiration time to a time in the past:</p></li>
+      </ul>
+      <pre>
+        &lt?php
+        // Delete the cookie
+        setcookie("username", "", time() - 3600);
+        echo "Cookie 'username' has been deleted!"; 
+        // Outputs: Cookie 'username' has been deleted!
+        ?>
+      </pre>
+    </div>
+    <h2>CREATING SESSION COOKIE</h2>
+    <div class="grant1">
+      <ul>
+        <li><p>A session cookie lasts only for the duration of the user's session. Here’s how to create one:</p></li>
+      </ul>
+      <pre>
+        &lt?php
+        setcookie("session_cookie", "value", 0); // Expires when the browser closes
+        echo "Session cookie is set!"; // Outputs: Session cookie is set!
+        ?>
+      </pre>
+    </div>
+    <h1>INTRODUCTION TO SESSION</h1>
+     <ul>
+      <li><p>Sessions allow you to store data across multiple pages. Unlike cookies, session data is stored on the server.</p></li>
+     </ul>
+       <h2>STARTING SESSION</h2>
+       <div class="grant">
+       <ul>
+        <li><p>To use sessions, you need to start the session at the beginning of your script:</p></li>
+       </ul>
+       <pre>
+        &lt?php
+        $_SESSION["username"] = "JohnDoe";
+        echo "Session variable 'username' is set!"; 
+        // Outputs: Session variable 'username' is set!
+        ?>
+       </pre>
+     </div>
+     <h2>WORKING WITH SESSION VARIABLES</h2>
+     <div class="grant">
+     <ul>
+      <li><p>To access session variables, simply reference them like this:</p></li>
+     </ul>
+     <pre>
+      &lt?php
+      echo "Hello, " . $_SESSION["username"]; // Outputs: Hello, JohnDoe
+      ?>
+     </pre>
+    </div>
+     <h2>DESTROYING SESSION</h2>
+     <div class="grant1">
+     <ul>
+      <li><p>To destroy a session, use the following code:</p></li>
+     </ul>
+     <pre>
+      &lt?php
+      session_start();
+      session_destroy();
+      echo "Session destroyed!"; // Outputs: Session destroyed!
+      ?>
+     </pre>
+    </div>
+     <h2>PASSING SESSION IDs</h2>
+     <div class="grant">
+     <ul><li><p>Session IDs can be passed through URLs or forms. Here’s how to retrieve the session ID:</p></li></ul>
+     <pre>
+      &lt?php
+      session_start();
+      echo "Session ID: " . session_id(); // Outputs: Session ID: 
+      ?>
+     </pre>
+    </div>
+    <h2>ENCODING/DECODING SESSION</h2>
+    <div class="grant1">
+    <ul>
+      <li><p>You can encode session variables using serialize() and decode them using unserialize():</p></li>
+    </ul>
+    <pre>
+      &lt?php
+      $_SESSION["data"] = serialize(["item1", "item2"]);
+      echo "Data stored in session: " . $_SESSION["data"]; 
+      // Outputs: Data stored in session: a:2:{i:0;s:5:"item1";i:1;s:5:"item2";}
+      $data = unserialize($_SESSION["data"]);
+      echo "First item: " . $data[0]; // Outputs: First item: item1
+      ?>
+    </pre>
+  </div>
+    <h2>INCREASING SESSION EXPIRE TIME</h2>
+    <div class="grant1">
+      <ul>
+        <li><p>You can increase the expiration time of a session like this:</p></li>
+      </ul>
+      <pre>
+        &lt?php
+        session_start();
+        // Set a new session expire time
+        setcookie(session_name(), session_id(), time() + 3600);
+        echo "Session expiration time extended!"; 
+        // Outputs: Session expiration time extended!
+        ?>
+      </pre>
+    </div>
+    <h2>WORKING WITH SESSION WITHOUT COOKIES</h2>
+    <div class="grant1">
+    <ul>
+      <li><p>To work with sessions without cookies, you can pass the session ID in the URL:</p></li>
+    </ul>
+    <pre>
+      &lt?php
+      session_start();
+      // Check if session ID is passed in the URL
+      if (isset($_GET['PHPSESSID'])) {
+          session_id($_GET['PHPSESSID']);
+      }
+      echo "Session ID used: " . session_id(); // Outputs: Session ID used: 
+      ?>
+  
+    </pre>
+  </div>
+</body>
+</html>

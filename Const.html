@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="db.css">
+</head>
+<body>
+    <h1>CONSTANTS</h1>
+    <div class="intro">
+        <p><b>A constant in PHP is a name or an identifier for a simple value. A constant value cannot change during the execution of the PHP script.</b></p>
+        <ul>
+            <li><p>By default, a PHP constant is case-sensitive.</p></li>
+            <li><p>By convention, constant identifiers are always uppercase.</p></li>
+            <li><p>A constant name starts with a letter or underscore, followed by any number of letters, numbers, or underscore.</p></li>
+            <li><p>There is no need to write a dollar sign ($) before a constant, however one has to use a dollar sign before a variable.</p></li>
+        </ul>
+    </div>
+        <h3>SYNTAX:</h3>
+        <pre> 
+              define(name, value);
+        </pre>
+        <h3>EXAMPLE:</h3>
+        <div class="grant">
+            <pre>
+                &lt?php  
+                define("CONSTANT", "Hello world.");
+
+                echo CONSTANT;  
+             ?>
+            </pre>
+        </div>
+            <h2>CONST KEYWORD</h2>
+            <p>You can also create a constant by using the const keyword.</p>
+            <h3>EXAMPLE:</h3>
+            <div class="grant">
+                <pre>
+                    const MYPEN = "Pentonics";
+                    echo MYPEN;
+                </pre>
+            </div>
+            <h2>CONSTANT ARRAYS</h2>
+         <p><b>create an Array constant using the define() function.</b></p>
+        <div class="intro">
+            <h3>SYNTAX:</h3>
+         <pre>
+             define(string $const_name, mixed $value, bool $case = false): bool
+         </pre>
+            <ul>
+                <li><p><b>const_name: </b>The name of the constant.</p></li>
+                <li><p><b>value: </b>The value of the constant. It can be a scalar value (int, float, string, bool, or null) or array values are also accepted.</p></li>
+                <li><p><b>case:</b>If set to true, the constant will be defined case-insensitive. The default behavior is case-sensitive, i.e., CONSTANT and Constant represent different values.</p></li>
+                <li><p>The define() function returns "true" on success and "false" on failure.</p></li>
+            </ul>
+        </div>
+            <h3>EXAMPLE:</h3>
+            <div class="grant">
+                <pre>
+                    &lt?php  
+                    define($name="LANGS", 
+                       $value=array('PHP', 'Java', 'Python')
+                    );
+                    var_dump(LANGS);
+                 ?>
+                </pre>
+            </div>
+    
+</body>
+</html>

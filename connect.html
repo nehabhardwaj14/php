@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="db.css">
+</head>
+<body>
+     <h1>DATABASE CONNECTIVITY</h1>
+     <ul>
+      <li><p>PHP provides various methods to connect and interact with databases. This section covers the essentials of working with MySQL databases.</p></li>
+     </ul>
+
+     <h2>CONNECTING TO A DATABASE</h2>
+     <ul><li><p>You can connect to a MySQL database using either MySQLi or PDO:</p></li></ul>
+     <div class="intro1">
+     <h3>USING MYSQL</h3>
+     <pre>
+      &lt?php
+      $conn = new mysqli("localhost", "username", "password", "database");
+      // Check connection
+      if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+      }
+      echo "Connected successfully"; // Outputs: Connected successfully
+      ?>
+     </pre>
+     <h3>USING PDO</h3>
+     <pre>
+      &lt?php
+      try {
+          $pdo = new PDO("mysql:host=localhost;dbname=database", "username", "password");
+          $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          echo "Connected successfully"; // Outputs: Connected successfully
+      } catch (PDOException $e) {
+          echo "Connection failed: " . $e->getMessage();
+      }
+      ?>
+     </pre>
+   </div>
+     <h3>MAKING SQL QUERIES</h3>
+     <ul>
+      <li><p>You can create SQL queries to interact with the database:</p></li>
+      <pre>
+         &lt?php
+         $sql = "SELECT id, name FROM users";
+         ?>
+      </pre>
+     </ul>
+     <h2>EXECUTING QUESRIES</h2>
+     <ul><li><p>Execute the SQL query using the connection:</p></li></ul>
+     <div class="grant">
+      <pre>
+         &lt?php
+                // Using MySQLi
+                $result = $conn->query($sql);
+                // Using PDO
+                $stmt = $pdo->query($sql);
+                ?>
+      </pre>
+     </div>
+     <h2>FETCHING DATA SETS</h2>
+     <ul><li><p>You can fetch results from a query:</p></li></ul>
+     <div class="intro">
+     <pre>
+      &lt?php
+      // Using MySQLi
+      if ($result->num_rows > 0) {
+          while($row = $result->fetch_assoc()) {
+              echo "id: " . $row["id"]. " - Name: " . $row["name"]. "&ltbr>";
+          }
+      } else {
+          echo "0 results"; // Outputs: id: 1 - Name: John   id: 2 - Name: Doe
+      }
+      // Using PDO
+      while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+          echo "id: " . $row["id"]. " - Name: " . $row["name"]. "&ltbr>";
+      }
+      ?>
+     </pre>
+   </div>
+   <h2>FORM SUBMISSION</h2>
+   <div class="intro1">
+      <pre>
+         &ltform action="submit.php" method="post">
+            Name: &ltinput type="text" name="name">&ltbr>
+            Age: &ltinput type="number" name="age">&ltbr>
+            &ltinput type="submit" value="Submit">
+        &lt/form>
+
+        &lt?php
+        // submit.php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $name = $_POST["name"];
+            $age = $_POST["age"];
+            
+            // Insert into database
+            $sql = "INSERT INTO users (name, age) VALUES ('$name', $age)";
+            if ($conn->query($sql) === TRUE) {
+                echo "New record created successfully"; // Outputs: New record created successfully
+            } else {
+                echo "Error: " . $sql . "&ltbr>" . $conn->error;
+            }
+        }
+        ?> 
+      </pre>
+   </div>
+      <h2>EDITING DATA WITH HTML FORM</h2>
+      <ul><li><p>You can also edit existing records:</p></li></ul>
+      <div class="intro1">
+         <pre>
+            &lt?php
+            // Fetch existing user
+            $id = $_GET['id'];
+            $sql = "SELECT * FROM users WHERE id = $id";
+            $result = $conn->query($sql);
+            $user = $result->fetch_assoc();
+            ?>
+            &ltform action="edit.php?id=&lt?php echo $user['id']; ?>" method="post">
+                Name: &ltinput type="text" name="name" value="&lt?php echo $user['name']; ?>">&ltbr>
+                Age: &ltinput type="number" name="age" value="&lt?php echo $user['age']; ?>">&ltbr>
+                &ltinput type="submit" value="Update">
+            &lt/form>
+            &lt?php
+            // edit.php
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $name = $_POST["name"];
+                $age = $_POST["age"];
+                $sql = "UPDATE users SET name='$name', age=$age WHERE id=$id";
+                if ($conn->query($sql) === TRUE) {
+                    echo "Record updated successfully"; // Outputs: Record updated successfully
+                } else {
+                    echo "Error updating record: " . $conn->error;
+                }}
+            ?>
+         </pre>
+      </div>
+
+     
+      
+</body>
+</html>

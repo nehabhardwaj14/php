@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="db.css">
+</head>
+<body>
+    <h1>FUNCTIONS</h1>
+      <p>Functions are blocks of code that can be reused in a program. They help organize your code into manageable pieces and reduce redundancy.</p>
+    <h2>FUNCTION DEFINITION</h2>
+    <p>A function is defined using the function keyword, followed by a name and a set of parentheses:</p>
+    <div class="grant">
+     <pre>
+        &lt?php
+        function greet() {
+            return "Hello, World!";
+        }
+        ?>
+     </pre>
+    </div>
+    <h2>CREATING AND INVOKING FUNCTION</h2>
+    <p>You can create a function and then invoke (call) it:</p>
+    <h3>EXAMPLE:</h3>
+    <div class="grant">
+        <pre>
+            &lt?php
+            function greet() {
+                return "Hello, World!";
+            }
+            echo greet(); // Outputs: Hello, World!
+            ?>
+        
+        </pre>
+    </div>
+    <h2>USER-DEFINED FUNCTIONS</h2>
+    <p>You can create your own functions to perform specific tasks:</p>
+    <h3>EXAMPLE:</h3>
+    <div class="grant">
+        <pre>
+            &lt?php
+            function add($a, $b) {
+                return $a + $b;
+            }
+            echo add(5, 10); // Outputs: 15
+            ?>
+        
+        </pre>
+    </div>
+    <h2>FORMAL PARAMETER AND ACTUAL PARAMETER</h2>
+    <p>Formal parameters are the variables defined by the function; actual parameters are the values you pass:</p>
+    <h3>EXAMPLE:</h3>
+    <div class="grant">
+        <pre>
+            &lt?php
+            function multiply($x, $y) { // $x and $y are formal parameters
+                return $x * $y;
+            }
+            echo multiply(4, 5); // Outputs: 20 (4 and 5 are actual parameters)
+            ?>
+        
+        </pre>
+    </div>
+    <h2>FUNCTION AND VARIABLE SCOPE</h2>
+    <p>The scope of a variable defines where it can be accessed:</p>
+    <h3>EXAMPLE:</h3>
+    <div class="intro">
+        <pre>
+            &lt?php
+            $globalVar = "I am a global variable";
+    
+            function testScope() {
+                global $globalVar; // Accessing the global variable
+                $localVar = "I am a local variable";
+                echo $globalVar . "&ltbr>";
+                 // Outputs: I am a global variable
+                // echo $localVar; // Uncommenting this will cause an error
+            }
+            testScope();
+            ?>
+        
+        </pre>
+    </div>
+    <h2>RECURSION</h2>
+    <p>A function can call itself, which is known as recursion:</p>
+    <h3>EXAMPLE:</h3>
+    <div class="grant1">
+        <pre>
+            &lt?php
+            function factorial($n) {
+                if ($n &lt= 1) {
+                    return 1;
+                }
+                return $n * factorial($n - 1);
+            }
+            echo factorial(5); // Outputs: 120
+            ?>
+        
+        </pre>
+    </div>
+    <h2>LIBRARY FUNCTIONS</h2>
+    <p>PHP provides many built-in library functions:</p>
+    <div class="intro">
+        <h3>EXAMPLE 1: ARRAY FUNCTION</h3>
+        <pre>
+            &lt?php
+            $array = [1, 2, 3, 4, 5];
+            $sum = array_sum($array); // Sum of array elements
+            echo $sum; // Outputs: 15
+            ?>
+        </pre>
+        <h3>EXAMPLE 2: STRING FUNCTION</h3>
+        <pre>
+            &lt?php
+            $string = "Hello, World!";
+            $length = strlen($string); // Length of the string
+            echo $length; // Outputs: 13
+            ?>
+        </pre>
+    </div>
+</body>
+</html>

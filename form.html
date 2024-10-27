@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="db.css">
+</head>
+<body>
+    <h1>PHP FORMS</h1>
+    <ul><li>
+    <p>HTML forms are used to collect user input, which can then be processed using PHP. This section covers the essential aspects of handling forms.</p>
+    </li></ul>
+    <h2>FORM CONTROLS</h2>
+    <div class="grant">
+        <p><b>Common form controls include:</b></p>
+        <ul>
+            <li><p>&ltinput>: For text, password, checkbox, radio buttons, etc.</p></li>
+            <li><p>&ltselect>: Dropdown lists.</p></li>
+            <li><p>&lttextarea>: Multi-line text input.</p></li>
+        </ul>
+    </div>
+    <h2>EXAMPLE:</h2>
+    <pre>
+        &ltform action="process.php" method="post">
+            Name: &ltinput type="text" name="name">&ltbr>
+            Age: &ltinput type="number" name="age">&ltbr>
+            Favorite Fruit: 
+            &ltselect name="fruit">
+                &ltoption value="apple">Apple&lt/option>
+                &ltoption value="banana">Banana&lt/option>
+                &ltoption value="cherry">Cherry&lt/option>
+            &lt/select>&ltbr>
+            &ltinput type="submit" value="Submit">
+        &lt/form>
+    </pre>
+    <h2>SUPERGLOBAL VARIABLES</h2>
+    <div class="grant1">
+        <ul><li>
+        <p>Superglobal variables are built-in global arrays in PHP that provide access to various data:</p>
+        </li></ul>
+        <ul>
+            <li><p>$_GET: For retrieving data sent via URL parameters.</p></li>
+            <li><p>$_POST: For retrieving data sent via form submissions.</p></li>
+            <li><p>$_REQUEST: Combines data from both $_GET and $_POST.</p></li>
+            <li><p>$_SESSION: For session variables.</p></li>
+            <li><p>$_COOKIE: For cookie variables.</p></li> 
+        </ul>
+    </div>
+    <h2>SUERGLOBAL ARRAYS</h2>
+    <ul><li>
+    <p>Superglobal arrays allow easy access to user input and server information:</p>
+    </li></ul>
+    <pre>
+        &lt?php
+        // Assuming the form is submitted
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $name = $_POST["name"];
+            $age = $_POST["age"];
+            $fruit = $_POST["fruit"];
+            echo "Name: $name, Age: $age, Favorite Fruit: $fruit";
+        }
+        ?>
+    </pre>
+    <h2>IMPORTING USER INPUT</h2>
+    <div class="intro">
+        <ul><li>
+        <p>User input can be imported using the $_POST or $_GET superglobal arrays. For instance:</p>
+        </li></ul> 
+        <pre>
+            &ltform action="" method="post">
+                Name: &ltinput type="text" name="name">&ltbr>
+                &ltinput type="submit" value="Submit">
+            &lt/form>
+    
+            &lt?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $name = htmlspecialchars($_POST["name"]); // Sanitizing input
+                echo "Hello, $name!";
+            }
+            ?>
+        </pre>
+    </div>
+    <h2>ACCESSING USER INPUT</h2>
+    <ul>
+    <li><p>Access user input using the superglobal arrays. Always sanitize user input to prevent security vulnerabilities:</p></li>
+    </ul>
+    <pre>
+        &lt?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $age = intval($_POST["age"]); // Convert to integer
+            if ($age &lt 18) {
+                echo "You are a minor.";
+            } else {
+                echo "You are an adult.";
+            }
+        }
+        ?>
+    </pre>
+
+   
+</body>
+</html>
